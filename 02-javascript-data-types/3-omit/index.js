@@ -5,13 +5,9 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-  const objectWithout = {...obj};
+  const arr = Object.assign({},obj);
   for (let arg of fields){
-    if(obj.hasOwnProperty(arg)){
-      objectWithout[arg]=null; //Сначала обнуляем чтобы убрать ссылки и потом удаляем.
-      delete objectWithout[arg];
-    }
-
+    if(obj.hasOwnProperty(arg))  delete arr[arg];
   }
-  return objectWithout;
+  return arr;
 };

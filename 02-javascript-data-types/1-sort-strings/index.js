@@ -6,9 +6,9 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
-  return [...arr].sort((a,b)=>{
+  return arr.slice().sort((a,b)=>{
     //Обычная сортировка
-    if(param==="asc"){
+    if(param=="asc"){
       return a.localeCompare(b, 'ru', { sensitivity: 'case',caseFirst : "upper" })
     }
     //Обратная вручную
@@ -17,5 +17,5 @@ export function sortStrings(arr, param = 'asc') {
 
 
   });
-
+  //Прикольно в JS каких только функций нет
 }
