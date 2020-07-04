@@ -4,19 +4,22 @@
  * @returns {function} - function-getter which allow get value from object by set path
  */
 //Вариант так себе - кривой, в комента через eval
-  export function createGetter(path) {
-    let patharr = path.split("."); //путь
-    let fooGetter = function (obj){
-      if (Object.keys(obj).length){ //пустой или нет
-        switch (patharr.length){// выбираем по пути
-        case 1 :
-          return obj[patharr[0]];
-        case 2 :
-          return obj[patharr[0]][patharr[1]];
-        case 3 :
-          return obj[patharr[0]][patharr[1]][patharr[2]];
-        }}
-    };
-    return fooGetter;
+  export     function createGetter(path) {
+  // debugger;
+  return (obj) =>{
+    if (Object.keys(obj).length === 0) return;
+    return  path.split(`.`)
+      .reduce((acc,elem)=>{
+          if(acc!==undefined){
+           // console.log("Block acc[elem]",acc[elem]);
+            return acc[elem];
+          }
+          else
+          {
+           // console.log("Block elem",elem);
+            return elem;
+          }
+        }
+        ,obj);
   }
-
+};
