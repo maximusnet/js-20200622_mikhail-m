@@ -5,11 +5,11 @@
  */
 //Вариант так себе - кривой, в комента через eval
   export     function createGetter(path) {
-  // debugger;
+  const patharr = path.split(`.`);
   return (obj) =>{
     if (Object.keys(obj).length === 0) return;
-    return  path.split(`.`)
-      .reduce((acc,elem)=>{
+    return  
+      patharr.reduce((acc,elem)=>{
           if(acc!==undefined){
            // console.log("Block acc[elem]",acc[elem]);
             return acc[elem];
