@@ -102,5 +102,4 @@ export default class ColumnChart {
     this.data=bodyData;
     this.render();
   }
-
 }
