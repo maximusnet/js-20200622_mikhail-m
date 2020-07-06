@@ -5,5 +5,9 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-
+  const arr = Object.assign({},obj);
+  for (let arg of fields){
+    if(obj.hasOwnProperty(arg))  delete arr[arg];
+  }
+  return arr;
 };

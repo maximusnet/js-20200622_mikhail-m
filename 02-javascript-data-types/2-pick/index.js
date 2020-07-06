@@ -5,5 +5,9 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
-
+  const arr = {};
+  for (let arg of fields){
+    if(obj.hasOwnProperty(arg))  arr[arg]=`${arg}`;
+  }
+  return arr;
 };

@@ -4,6 +4,18 @@
  * @param {string} [param="asc"] param - the sorting type "asc" or "desc"
  * @returns {string[]}
  */
-export function sortStrings(arr, param = 'lowerAsc') {
+export function sortStrings(arr, param = 'asc') {
 
+  return arr.slice().sort((a,b)=>{
+    //Обычная сортировка
+    if(param=="asc"){
+      return a.localeCompare(b, 'ru', { sensitivity: 'case',caseFirst : "upper" })
+    }
+    //Обратная вручную
+    if(a.localeCompare(b, 'ru')>0) return -1;
+    else return 1
+
+
+  });
+  //Прикольно в JS каких только функций нет
 }
