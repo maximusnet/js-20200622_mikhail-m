@@ -11,7 +11,6 @@ export default class ColumnChart {
     this.chartHeight=value;
     this.link=link;
     this.element = document.createElement(`div`);
-
     if( !label && !link && !data && !this.chartHeight) {
       this.chartHeight=50;
       this.renderBlank();
