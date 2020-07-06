@@ -4,22 +4,21 @@
  * @returns {function} - function-getter which allow get value from object by set path
  */
 //Вариант так себе - кривой, в комента через eval
-  export     function createGetter(path) {
+export     function createGetter(path) {
   const patharr = path.split(`.`);
   return (obj) =>{
     if (Object.keys(obj).length === 0) return;
-    return  
-      patharr.reduce((acc,elem)=>{
-          if(acc!==undefined){
-           // console.log("Block acc[elem]",acc[elem]);
-            return acc[elem];
-          }
-          else
-          {
-           // console.log("Block elem",elem);
-            return elem;
-          }
+    return  patharr.reduce((acc,elem)=>{
+        if(acc!==undefined){
+
+          return acc[elem];
         }
-        ,obj);
+        else
+        {
+
+          return elem;
+        }
+      }
+      ,obj);
   }
 };
