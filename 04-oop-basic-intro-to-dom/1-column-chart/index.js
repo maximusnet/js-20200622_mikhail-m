@@ -17,6 +17,7 @@ export default class ColumnChart {
       this.renderBlank();
     }else
       {
+        
       this.render();
     }
   }
