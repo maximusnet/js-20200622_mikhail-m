@@ -1,16 +1,16 @@
 export default class NotificationMessage {
   static active;
   message = null
-  durationInSeconds = 2;
+  durationInSeconds = null;
   type = "";
-  duration = 2000;
+  duration = null;
   element =null;
   timerId = null;
 
   constructor(message,{duration = 2000,
-    type = 'success',}={}){
+    type = 'success'}={}){
     this.message=message;
-    this.durationInSeconds=(duration/1000)+ 's';;
+    this.durationInSeconds= (duration / 1000)+ 's';
     this.duration=duration;
     this.type=type;
 
@@ -36,23 +36,18 @@ export default class NotificationMessage {
 
   }
   destroy() {
-    this.element.remove();
+    this.remove();
     NotificationMessage.active=null;
   }
   show(parent = document.body) {
-    console.log(`Before parent append - `, parent);
     parent.append(this.element);
-    console.log(`After element append - `,this.element.outerHTML);
-    console.log(`After parent append - ` ,parent.outerHTML);
-    this.timerId = setTimeout(this.remove(),this.duration);
-    clearTimeout(this.timerId);
+     setTimeout(()=>this.remove(),this.duration);
+    //clearTimeout(this.timerId);
     return this.element;
   }
-  remove() {
-  this.element.remove();
-  this.element=null;
-  NotificationMessage.active=null;
-
+  remove(){
+    this.element.remove();
+    NotificationMessage.active = null;
   }
 
 

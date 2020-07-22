@@ -91,7 +91,7 @@ export default class ColumnChart {
 
 
 
-  remove(){
+  remove () {
     this.element.remove();
   }
   destroy(){
